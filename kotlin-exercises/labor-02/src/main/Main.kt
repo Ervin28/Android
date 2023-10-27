@@ -43,7 +43,7 @@ fun main(){
     }
 
     //Problem 3
-    println("\n*************** Problem 3 ************")
+    println("\n*************** Problem 3 *************")
 
     val validDates = mutableListOf<Date>()
     val random = Random()
