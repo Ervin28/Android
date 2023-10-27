@@ -48,6 +48,13 @@ fun main(){
     val validDates = mutableListOf<Date>()
     val random = Random()
 
+    val currentDate = Date()
+    if (currentDate.isLeapYear()) {
+        println("${currentDate.year} is a leap year.")
+    } else {
+        println("${currentDate.year} is not a leap year.")
+    }
+
     while (validDates.size < 10) {
         val generatedDate = Date(random.nextInt(3000) + 1, random.nextInt(12) + 1, random.nextInt(31) + 1)
         if (generatedDate.isValidDate()) {
@@ -59,6 +66,8 @@ fun main(){
 
     println("Valid Dates:")
     validDates.forEach { println(it) }
+
+
 
     validDates.sort()
     println("\nSorted Dates:")

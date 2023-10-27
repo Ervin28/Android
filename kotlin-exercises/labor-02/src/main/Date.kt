@@ -24,7 +24,7 @@ fun Date.isLeapYear(): Boolean {
 fun Date.isValidDate(): Boolean {
     val calendar = Calendar.getInstance()
     calendar.setLenient(false)
-    calendar.set(year, month - 1, day) // Month is 0-based in Calendar
+    calendar.set(year, month - 1, day)
     try {
         calendar.time
     } catch (e: Exception) {
@@ -33,5 +33,3 @@ fun Date.isValidDate(): Boolean {
     return true
 }
 
-fun main() {
-}
