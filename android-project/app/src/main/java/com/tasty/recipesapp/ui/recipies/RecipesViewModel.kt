@@ -1,11 +1,10 @@
-package com.tasty.recipesapp.ui.recipies
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import repository.recipe.model.InstructionsDTO
+import com.tasty.recipesapp.repository.recipe.model.InstructionsDTO
 import java.text.SimpleDateFormat
 import java.util.*
 

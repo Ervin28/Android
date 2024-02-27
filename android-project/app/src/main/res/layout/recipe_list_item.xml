@@ -76,24 +76,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="#5BFFD180"
+                    android:backgroundTint="#007172"
                     android:text="Details"
-                    android:textColor="#598A72"
+                    android:textColor="@color/black"
                     app:cornerRadius="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recipeDescription" />
-
-            <Button
-                    android:id="@+id/addToWishlistButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:backgroundTint="#5BFFD180"
-                    android:text="Add to Wishlist"
-                    android:textColor="#598A72"
-                    app:cornerRadius="10sp"
-                    app:layout_constraintEnd_toStartOf="@+id/recipeDetailsButton"
-                    app:layout_constraintTop_toTopOf="@+id/recipeDetailsButton" />
 
             <TextView
                     android:id="@+id/recipeScore"

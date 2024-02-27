@@ -1,4 +1,4 @@
-package repository.userratings.model
+package com.tasty.recipesapp.repository.recipe.userratings.model
 
 import com.google.gson.annotations.SerializedName
 

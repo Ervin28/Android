@@ -1,4 +1,4 @@
-package repository.recipe.model
+import com.tasty.recipesapp.repository.recipe.model.UserRatingsModel
 
 data class UserRatingsDTO (
     var countPositive: Int? = null,
