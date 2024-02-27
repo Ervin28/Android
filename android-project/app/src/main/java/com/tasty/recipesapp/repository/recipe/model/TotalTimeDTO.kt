@@ -1,4 +1,4 @@
-package repository.recipe.model
+package com.tasty.recipesapp.repository.recipe.model
 
 data class TotalTimeDTO(
     val tier: String? = null,

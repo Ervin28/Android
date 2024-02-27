@@ -1,29 +1,33 @@
 package com.tasty.recipesapp.repository.recipe.model
-import repository.recipe.model.*
 
-
+import com.tasty.recipesapp.repository.instruction.model.InstructionDTO
 
 data class RecipeDTO(
     val id: Int,
     val name: String,
-    val description: String? = "",
-    val thumbnail_url: String?,
-    val user_ratings: UserRatingsDTO,
-    val total_time_tier: TotalTimeDTO,
-    val instructions: List<InstructionsDTO>
+    val description: String,
+    val thumbnail_url: String,
+    val original_video_url: String,
+    val instructions: List<InstructionDTO>?
 
 )
 
-fun RecipeDTO.toModel() = RecipeModel (
-    id=this.id,
-    name=this.name,
-    description=this.description,
-    thumbnailUrl =this.thumbnail_url,
-    userRatings = this.user_ratings.toModel(),
-    totalTime = this.total_time_tier.toModel(),
-    instructions = this.instructions.toModelList()
+data class RecipeData(
+    val name: String,
+    val description: String,
+    val pictureUrl: String,
+    val videoUrl: String
 )
 
+fun RecipeDTO.toModel(): RecipeModel {
+    return RecipeModel(
+        id = this.id,
+        name = this.name,
+        description = this.description,
+        thumbnailUrl = this.thumbnail_url,
+        originalVideoUrl = this.original_video_url
+    )
+}
 
 fun List<RecipeDTO>.toModelList(): List<RecipeModel> =
     this.map { it.toModel() }
