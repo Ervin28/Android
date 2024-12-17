@@ -1,153 +1,224 @@
 package main
 
-import java.util.*
-import kotlin.random.Random
+//I.labor
 
-//1
-fun addNumbers(a:Int,b:Int) {
-    val sum = a + b
-    println("$a + $b = $sum")
-}
-fun isPrime(num: Int): Boolean {
-    if (num < 2) {
-        return false
-    }
-    for (i in 2 until num) {
-        if (num % i == 0) {
-            return false
-        }
-    }
-    return true
+//1.feladat
+/*fun main() {
+
+    val value1 = 2
+    val value2 = 3
+
+    val result = value1 + value2
+
+    println("$value1 + $value2 = $result")
 }
 
-fun isEven(a:Int)=a%2==0
-//4
-fun encode (s:String):String{
-    return Base64.getEncoder().encodeToString(s.toByteArray())
-}
-fun decode(s:String): String {
-    return String(Base64.getDecoder().decode(s))
-}
-fun main(args: Array<String>) {
-    println("***************Firs exercise************")
-    addNumbers(10,6)
-
-    println("***************Second exercise************")
-
+//2.feladat
+fun main() {
+    // Declare an immutable list of days of the week
     val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 
-    // Print all days
-    println("All days of the week:")
+    // Print the entire list
+    println("Days of the week:")
     for (day in daysOfWeek) {
         println(day)
     }
 
-    // Print days starting with 'T'
+    // Print the days starting with the letter 'T'
     println("\nDays starting with 'T':")
     val daysStartingWithT = daysOfWeek.filter { it.startsWith("T") }
-    println(daysStartingWithT)
+    for (day in daysStartingWithT) {
+        println(day)
+    }
 
-    // Print days containing the letter 'e'
-    println("\nDays containing the letter 'e':")
-    val daysWithE = daysOfWeek.filter { it.contains("e") }
-    println(daysWithE)
+    // Print the days containing the letter 'e'
+    println("\nDays containing 'e':")
+    val daysContainingE = daysOfWeek.filter { it.contains("e") }
+    for (day in daysContainingE) {
+        println(day)
+    }
 
-    // Print days of length 6
+    // Print all the days of length 6
     println("\nDays of length 6:")
-    val daysLength6 = daysOfWeek.filter { it.length == 6 }
-    println(daysLength6)
-    println("***************Third exercise************")
-    println("7 is prime?: "+isPrime(7))
-    println("6 is prime?: "+isPrime(6))
+    val daysOfLength6 = daysOfWeek.filter { it.length == 6 }
+    for (day in daysOfLength6) {
+        println(day)
+    }
+}
+
+//3.feladat
+
+fun isPrime(number: Int): Boolean {
+    if (number <= 1) {
+        return false
+    }
+    if (number == 2) {
+        return true
+    }
+    if (number % 2 == 0) {
+        return false
+    }
+    var divisor = 3
+    while (divisor * divisor <= number) {
+        if (number % divisor == 0) {
+            return false
+        }
+        divisor += 2
+    }
+    return true
+}
+
+fun main() {
     val rangeStart = 1
-    val rangeEnd = 20
-    println("Prime numbers between $rangeStart and $rangeEnd:")
+    val rangeEnd = 100
+
+    println("Prime number int the range $rangeStart to $rangeEnd:")
     for (num in rangeStart..rangeEnd) {
         if (isPrime(num)) {
-            print("$num ")
+            println(num)
         }
     }
-    println("\n***************Fourth exercise************")
-    println("Given the word: kukac")
-    val text= encode("kukac")
-    println("encoded text: "+text)
-    println("decoded text: "+decode(text))
+}
 
-    println("\n***************Fifth exercise************")
-    println("3 is even?: "+isEven(3))
-    println("4 is even?: "+isEven(4))
+//4.feladat
 
-    println("\n***************Sixth exercise************")
-    // Double the elements of a list of integers
-    val numbers = listOf(1, 2, 3, 4, 5)
+fun encode(message: String, shift: Int): String {
+    val result = StringBuilder()
+    for (char in message) {
+        if (char.isLetter()) {
+            val shiftedChar = ((char.toInt() - 'a'.toInt() + shift) % 26 + 'a'.toInt()).toChar()
+            result.append(shiftedChar)
+        } else {
+            result.append(char)
+        }
+    }
+    return result.toString()
+}
+
+fun decode(encodedMessage: String, shift: Int): String {
+    return encode(encodedMessage, 26 - shift) // Decoding is essentially encoding with the opposite shift
+}
+
+fun applyEncodingOrDecoding(message: String, operation: (String, Int) -> String, shift: Int): String {
+    return operation(message, shift)
+}
+
+fun main() {
+    val originalMessage = "hello world"
+    val shift = 3
+
+    // Encoding
+    val encodedMessage = applyEncodingOrDecoding(originalMessage, ::encode, shift)
+    println("Encoded message: $encodedMessage")
+
+    // Decoding
+    val decodedMessage = applyEncodingOrDecoding(encodedMessage, ::decode, shift)
+    println("Decoded message: $decodedMessage")
+}
+*/
+//5.feladat
+/*
+fun printEvenNumbers(numbers: List<Int>) = numbers.filter {
+    it % 2 == 0
+}.forEach { println(it) }
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    println("Even numbers:")
+    printEvenNumbers(numbers)
+}
+*/
+/*
+//6.exercise
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+    //doubled
     val doubledNumbers = numbers.map { it * 2 }
     println("Doubled numbers: $doubledNumbers")
 
-    // Print the days of the week capitalized
-    val capitalizedDays = daysOfWeek.map { it.toUpperCase() }
-    println("Days of the week capitalized: $capitalizedDays")
+    //capitalized
+    val daysOfWeek = listOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
 
-    // Print the first character of each day capitalized
-    val firstCharCapitalized = daysOfWeek.map { it.first().toUpperCase() }
-    println("First character of each day capitalized: $firstCharCapitalized")
+    val capitalizedDaysOfWeek = daysOfWeek.map { it.toUpperCase() }
 
-    // Print the length of days
-    val lengthsOfDays = daysOfWeek.map { it.length }
-    println("Length of days: $lengthsOfDays")
+    capitalizedDaysOfWeek.forEach { println(it) }
 
-    // Compute the average length of days
-    val averageLength = lengthsOfDays.average()
+    //first letter capitalized
+    val firstCharCapitalizedDays = daysOfWeek.map { it.first().toUpperCase() }
+
+    firstCharCapitalizedDays.forEach { println(it) }
+
+    //day length
+    val dayLengths = daysOfWeek.map { it.length }
+
+    dayLengths.forEach { println(it) }
+
+    //average length
+    val totalLength = daysOfWeek.sumBy { it.length }
+    val averageLength = totalLength.toDouble() / daysOfWeek.size
+
     println("Average length of days: $averageLength")
+}
+*//*
+//7. exercise
+fun main(){
+    val daysOfWeek = listOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
 
-    println("\n***************Seven exercise************")
-    // Convert the daysOfWeek immutable list into a mutable one
-    val daysOfWeek_2 = mutableListOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    //remove words containing 'n"
+    val filteredDays = daysOfWeek.filter { !it.contains('n', ignoreCase = true) }
 
-    // Remove all days containing the letter 'n'
-    daysOfWeek_2.removeIf { it.contains("n") }
+    println(filteredDays)
 
-    // Print the mutable list after removal
-    println("Days after removing those containing 'n': $daysOfWeek_2")
-
-    // Print each element of the list with its index
-    println("\nList elements with index:")
-    for ((index, value) in daysOfWeek_2.withIndex()) {
-        println("Item at $index is $value")
+    //items with index
+    for ((index, day) in daysOfWeek.withIndex()) {
+        println("$index: $day")
     }
 
-    // Sort the result list alphabetically
-    daysOfWeek_2.sort()
+    //sorted list
+    val sortedDays = daysOfWeek.sorted()
 
-    // Print the sorted list
-    println("\nSorted list alphabetically: $daysOfWeek_2")
-    println("\n***************Eight exercise************")
+    println(sortedDays)
+}
+*/
+//8. exercise
+import kotlin.random.Random
 
-    // Generate an array of 10 random integers between 0 and 100
-    val randomIntegers = IntArray(10) { Random.nextInt(0, 101) }
+fun main() {
+    //random 10 integer in range of 0-100
+    val random = Random.Default
+    val randomIntegers = List(10) { random.nextInt(0, 101) }
 
-    // Use forEach to print each element of the array in a new line
-    println("Array elements:")
     randomIntegers.forEach { println(it) }
 
-    // Print the array sorted in ascending order
-    val sortedArray = randomIntegers.sorted().toTypedArray()
-    println("\nSorted array in ascending order: ${sortedArray.joinToString()}")
+    //sorted integers
+    val sortedIntegers = randomIntegers.sorted()
 
-    // Check whether the array contains any even number
+    sortedIntegers.forEach { println(it) }
+
+    //contains even or not
     val containsEven = randomIntegers.any { it % 2 == 0 }
-    println("\nDoes the array contain any even number? $containsEven")
 
-    // Check whether all the numbers are even
+    if (containsEven) {
+        println("The array contains at least one even number.")
+    } else {
+        println("The array does not contain any even numbers.")
+    }
+    // all even or not
     val allEven = randomIntegers.all { it % 2 == 0 }
-    println("Are all numbers even? $allEven")
 
-    // Calculate the average of generated numbers and print it using forEach
-    var sum = 0
-    randomIntegers.forEach { sum += it }
-    val average = sum / randomIntegers.size.toDouble()
-    println("\nAverage of generated numbers: $average")
+    if (allEven) {
+        println("All numbers in the array are even.")
+    } else {
+        println("Not all numbers in the array are even.")
+    }
+    //average of generated numbers
+    val sum = randomIntegers.sum()
+    val average = if (randomIntegers.isNotEmpty()) sum.toDouble() / randomIntegers.size else 0.0
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    randomIntegers.forEach {
+        println("Number: $it")
+    }
+
+    println("Average: $average")
 }
